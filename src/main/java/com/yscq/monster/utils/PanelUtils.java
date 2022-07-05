@@ -1,6 +1,6 @@
 package com.yscq.monster.utils;
 
-import com.yscq.monster.action.KillAction;
+import com.yscq.monster.action.InnerKillAction;
 import com.yscq.monster.bean.Boss;
 import com.yscq.monster.button.KillButton;
 import com.yscq.monster.cache.Cache;
@@ -33,10 +33,10 @@ public class PanelUtils {
         innerPanel.add(tr3);
         innerPanel.add(tr4);
         innerPanel.add(tr5);
-        generateBossItem(constraint,innerPanel,innerLayout,1,"魔龙教主", "会员之家①层", null, 60, null,3);
-        generateBossItem(constraint,innerPanel,innerLayout,2,"魔龙教主", "魔龙祭坛", null, 60, null,4);
-        generateBossItem(constraint,innerPanel,innerLayout,3,"魔龙教主", "地宫·入口", null, 60, null,5);
-        generateBossItem(constraint,innerPanel,innerLayout,4,"魔龙教主", "地宫·深渊", null, 60, null,6);
+        generateBossItem(constraint,innerPanel,innerLayout,1,"魔龙教主", "会员之家①层", null, 60,3);
+        generateBossItem(constraint,innerPanel,innerLayout,2,"魔龙教主", "魔龙祭坛", null, 60,4);
+        generateBossItem(constraint,innerPanel,innerLayout,3,"魔龙教主", "地宫·入口", null, 60,5);
+        generateBossItem(constraint,innerPanel,innerLayout,4,"魔龙教主", "地宫·深渊", null, 60,6);
         innerLayout.setConstraints(title,generateConstraints(constraint,1.0,1.0,0,0,5,1));
         innerLayout.setConstraints(tr1,generateConstraints(constraint,1.0,1.0,0,1,1,1));
         innerLayout.setConstraints(tr2,generateConstraints(constraint,1.0,1.0,1,1,1,1));
@@ -74,7 +74,7 @@ public class PanelUtils {
         return constraint;
     }
 
-    private static void generateBossItem(GridBagConstraints constraint, JPanel panel, GridBagLayout layout, int id, String bossName, String position, Date killTime, int freshTime, Date rebornTime, int row){
+    private static void generateBossItem(GridBagConstraints constraint, JPanel panel, GridBagLayout layout, int id, String bossName, String position, Date killTime, int freshTime, int row){
         Boss boss = Cache.BossMap.get(id);
         if(null == boss) {
             boss = new Boss();
@@ -83,7 +83,6 @@ public class PanelUtils {
             boss.setPosition(position);
             boss.setKillTime(killTime);
             boss.setFreshTime(freshTime);
-            boss.setRebornTime(rebornTime);
             Cache.BossMap.put(id,boss);
         }
         JLabel labelName = new JLabel(boss.getName());
@@ -96,7 +95,7 @@ public class PanelUtils {
         layout.setConstraints(labelPosition,generateConstraints(constraint,1.0,1.0,1,row - 1,1,1));
         if(null == boss.getKillTime()) {
             KillButton killButton = new KillButton(id,"击杀");
-            killButton.addActionListener(new KillAction());
+            killButton.addActionListener(new InnerKillAction());
             panel.add(killButton);
             layout.setConstraints(killButton, generateConstraints(constraint, 1.0, 1.0, 2, row - 1, 1, 1));
         }else{
@@ -105,17 +104,18 @@ public class PanelUtils {
             panel.add(labelKillTime);
             layout.setConstraints(labelKillTime, generateConstraints(constraint, 1.0, 1.0, 2, row - 1, 1, 1));
         }
-        JLabel labelFreshTime = new JLabel(String.valueOf(boss.getFreshTime()));
+        freshTime = Cache.half ? boss.getFreshTime() / 2 : boss.getFreshTime();
+        JLabel labelFreshTime = new JLabel(String.valueOf(freshTime));
         labelFreshTime.setFont(new Font("行楷", Font.PLAIN,20));
         panel.add(labelFreshTime);
         layout.setConstraints(labelFreshTime,generateConstraints(constraint,1.0,1.0,3,row - 1,1,1));
-        if(null == boss.getRebornTime()) {
+        if(null == boss.getKillTime()) {
             JLabel labelRebornTime = new JLabel("未知");
             labelRebornTime.setFont(new Font("行楷", Font.PLAIN, 20));
             panel.add(labelRebornTime);
             layout.setConstraints(labelRebornTime, generateConstraints(constraint, 1.0, 1.0, 4, row - 1, 1, 1));
         }else{
-            JLabel labelRebornTime = new JLabel(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format( boss.getRebornTime()));
+            JLabel labelRebornTime = new JLabel(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(boss.getKillTime().getTime() + freshTime * 60 * 1000)));
             labelRebornTime.setFont(new Font("行楷", Font.PLAIN, 20));
             panel.add(labelRebornTime);
             layout.setConstraints(labelRebornTime, generateConstraints(constraint, 1.0, 1.0, 4, row - 1, 1, 1));

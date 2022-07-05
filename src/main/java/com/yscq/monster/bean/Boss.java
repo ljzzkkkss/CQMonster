@@ -11,7 +11,6 @@ public class Boss implements Serializable {
     private String position;//boss位置
     private Date killTime;//击杀时间
     private Integer freshTime;//刷新间隔（分钟）
-    private Date rebornTime;//复活时间
 
     public int getId() {
         return id;
@@ -43,14 +42,6 @@ public class Boss implements Serializable {
 
     public void setFreshTime(Integer freshTime) {
         this.freshTime = freshTime;
-    }
-
-    public Date getRebornTime() {
-        return rebornTime;
-    }
-
-    public void setRebornTime(Date rebornTime) {
-        this.rebornTime = rebornTime;
     }
 
     public String getPosition() {
