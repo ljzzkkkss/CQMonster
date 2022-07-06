@@ -101,7 +101,7 @@ public class PanelUtils {
         generateBossItem(constraint,innerPanel,innerLayout,64,"半兽人首领", "半兽人陵墓", null, 180,66, 1);
         generateBossItem(constraint,innerPanel,innerLayout,65,"半兽人首领", "瘟疫沼泽", null, 180,67, 1);
         generateBossItem(constraint,innerPanel,innerLayout,66,"半兽人首领", "极寒地宫", null, 180,68, 1);
-        generateBossItem(constraint,innerPanel,innerLayout,67,"至尊圣皇[五倍]", "皇陵地宫", null, 180,69, 1);
+        generateBossItem(constraint,innerPanel,innerLayout,67,"至尊圣皇[五倍]", "皇陵地宫", null, 150,69, 1);
         generateBossItem(constraint,innerPanel,innerLayout,68,"威远将军[三倍]", "皇陵地宫", null, 150,70, 1);
         innerLayout.setConstraints(title,generateConstraints(constraint,1.0,1.0,0,0,5,1));
         innerLayout.setConstraints(tr1,generateConstraints(constraint,1.0,1.0,0,1,1,1));
