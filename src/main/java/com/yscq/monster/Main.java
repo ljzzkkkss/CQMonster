@@ -52,7 +52,7 @@ public class Main {
         mainLayout.setConstraints(innerScrollPane,constraint);
         constraint.fill = GridBagConstraints.BOTH;
         constraint.weightx = 1.0;
-        constraint.weighty = 10;
+        constraint.weighty = 5;
         constraint.gridx =0;
         constraint.gridy = 2;
         constraint.insets = new Insets(5,5,5,5);
