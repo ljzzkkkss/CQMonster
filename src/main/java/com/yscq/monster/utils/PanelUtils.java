@@ -65,7 +65,7 @@ public class PanelUtils {
         generateBossItem(constraint,innerPanel,innerLayout,28,"绿魔蜘蛛", "恶魔广场", null, 120,30, 1);
         generateBossItem(constraint,innerPanel,innerLayout,29,"绿魔蜘蛛", "会员之家①层", null, 120,31, 1);
         generateBossItem(constraint,innerPanel,innerLayout,30,"绿魔蜘蛛", "雷炎洞穴二层", null, 120,32, 1);
-        generateBossItem(constraint,innerPanel,innerLayout,31,"绿魔蜘蛛", "地宫·入口关", null, 120,33, 1);
+        generateBossItem(constraint,innerPanel,innerLayout,31,"绿魔蜘蛛", "地宫·入口", null, 120,33, 1);
         generateBossItem(constraint,innerPanel,innerLayout,32,"红魔蜘蛛", "恶魔广场", null, 120,34, 1);
         generateBossItem(constraint,innerPanel,innerLayout,33,"红魔蜘蛛", "会员之家①层", null, 120,35, 1);
         generateBossItem(constraint,innerPanel,innerLayout,34,"红魔蜘蛛", "烟花之地", null, 120,36, 1);
