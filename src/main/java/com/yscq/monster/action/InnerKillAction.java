@@ -3,10 +3,12 @@ package com.yscq.monster.action;
 import com.yscq.monster.bean.Boss;
 import com.yscq.monster.button.KillButton;
 import com.yscq.monster.cache.Cache;
+import com.yscq.monster.utils.DataUtils;
 import com.yscq.monster.utils.PanelUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.Date;
 
 public class InnerKillAction extends AbstractAction {
@@ -19,7 +21,14 @@ public class InnerKillAction extends AbstractAction {
         boss.setKillTime(killTime);
         Cache.BossMap.put(id,boss);
         JPanel panel = (JPanel) button.getParent();
-        panel.removeAll();
-        PanelUtils.makeInnerPanel(panel);
+        if(null != panel) {
+            panel.removeAll();
+            PanelUtils.makeInnerPanel(panel);
+        }
+        try {
+            DataUtils.writeData();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }

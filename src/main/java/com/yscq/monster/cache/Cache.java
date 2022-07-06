@@ -10,5 +10,5 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Cache {
     public static Map<Integer, Boss> BossMap = new ConcurrentHashMap<>();
     public static boolean half = false;
-    public static JFrame mainFrame;
+    public static MainFrame mainFrame;
 }
