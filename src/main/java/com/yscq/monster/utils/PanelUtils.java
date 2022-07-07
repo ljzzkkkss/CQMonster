@@ -146,6 +146,11 @@ public class PanelUtils {
         constraint.insets = new Insets(5,5,5,5);
         outerLayout.setConstraints(title,constraint);
         generateBossItem(constraint,outerPanel,outerLayout,69,"远古蛛后", "神龙帝国", null, 120,3, 2);
+        generateBossItem(constraint,outerPanel,outerLayout,70,"朱雀雪域魔王", "朱雀阵地", null, 150,4, 2);
+        generateBossItem(constraint,outerPanel,outerLayout,71,"朱雀红魔蜘蛛", "朱雀阵地", null, 120,5, 2);
+        generateBossItem(constraint,outerPanel,outerLayout,72,"朱雀火龙统领", "朱雀阵地", null, 90,6, 2);
+        generateBossItem(constraint,outerPanel,outerLayout,73,"朱雀天珠", "朱雀阵地", null, 150,7, 2);
+        generateBossItem(constraint,outerPanel,outerLayout,74,"朱雀半兽人统帅", "朱雀阵地", null, 180,8, 2);
         outerLayout.setConstraints(title,generateConstraints(constraint,1.0,1.0,0,0,5,1));
         outerLayout.setConstraints(tr1,generateConstraints(constraint,1.0,1.0,0,1,1,1));
         outerLayout.setConstraints(tr2,generateConstraints(constraint,1.0,1.0,1,1,1,1));
